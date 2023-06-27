@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<meta charset='utf-8'/>
-<script src="signup_fs.js"></script>
-<html>
-    <head>
-        <t>로그인 시스템</t>
-    </head>
-    <body>
-        <h1>gittest</h1>
-        <br>
-        <input id="id" placeholder="사용자 ID"> 
-        <br>
-        <input type="password" id="password" placeholder="사용자 Password">
-        <br>
-        <button id="login" onclick="login()">로그인</button>
-        <br>
-        <button id="signin" onclick="window.location.href = 'Signup.html'">회원가입</button>
-        <br>
-        <t id="l_status_name"></t>
-        <br>
-        <t id="l_status_authdate"></t>
-        <br>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 시스템</title>
+</head>
+<body>
+    <h2 style="margin-left: 10px;">로그인 시스템</h2>
+        <div class="loginstyle">
+            <input id="id" placeholder="사용자 ID"> 
+            <br>
+            <input type="password" id="password" placeholder="사용자 Password">
+            <br>
+            <button id="login" onclick="login()">로그인</button>
+            <button id="signin" onclick="window.location.href = 'Signup.html'">회원가입</button>
+            <br>
+            <t id="l_status"></t>
+        </div>
+    <script src="signup_fs.js"></script>
+</body>
 </html>
