@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<meta charset='utf-8'/>
+<html>
+    <head>
+        <t>회원가입</t>
+    </head>
+    <body>
+        <script src="signup_fs.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <br>
+        <input id="signup_name" placeholder="이름"> 
+        <br>
+        <br>
+        <input id="signup_email" placeholder="이메일"> 
+        <button id="verification_sendmail" onclick="send_email()">인증 요청</button> 
+        <br>
+        <input id="signup_code" placeholder="인증 코드"> 
+        <button disabled='true' id="verification" onclick="check_key()">인증하기</button> 
+        <br>
+        <br>
+        <input maxlength="11" id="signup_phonenum" placeholder="전화번호 (01012345678)"> 
+        <br>
+        <input id="signup_id" placeholder="사용할 ID"> 
+        <button id="signup_id_check" onclick="check_overwrite()">확인</button>
+        <br>
+        <input type="password" id="signup_pw" placeholder="사용할 PW"> 
+        <br>
+        <input type="password" id="signup_pw_check" placeholder="사용할 PW 재확인"> 
+        <p id="status"></p>
+        <br>
+        <button id="signup_btn" disabled="true" onclick="sign_in()">회원가입</button>
+        <button onclick="location.href = 'index.html';">뒤로가기</button>
+    </body>
+
+    <script>
+        // check password and disable/able button
+        function pw_check() {
+            let input_1 = document.getElementById('signup_pw');
+            let input_2 = document.getElementById('signup_pw_check');
+            if (input_1.value != "" && input_2.value != "") {
+                if (input_1.value != input_2.value) {
+                    document.getElementById("status").textContent = "비밀번호가 일치하지 않습니다.";
+                    document.getElementById("signup_btn").disabled = true;
+                } else {
+                    document.getElementById("status").textContent = "비밀번호가 일치합니다.";
+                    document.getElementById("signup_btn").disabled = false;
+                }
+            } else {
+                document.getElementById("status").textContent = "비밀번호가 일치하지 않습니다.";
+                document.getElementById("signup_btn").disabled = true;
+            }
+        }
+        
+        document.getElementById('signup_pw').addEventListener('input', pw_check);
+        document.getElementById('signup_pw_check').addEventListener('input', pw_check);
+    </script>
+</html>
