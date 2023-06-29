@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     color: #000;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 /*.header{
     width: 100%;
@@ -98,7 +99,7 @@ header div{
     border: none;
   }
   
-  /* The container <div> - needed to position the dropdown content */
+  
   .dropdown {
     position: relative;
     display: inline-block;
@@ -111,16 +112,23 @@ header div{
     background-color: rgb(205, 246, 246);
     opacity:0.8;
     min-width: 100%;
-  
+    transition-duration: 0.5s;
     /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
     z-index: 1;
+  }
+  .dropdown-content hr{
+    background-color: #a3a3a3;
+    color: black;
+    height: 1px;
+    width: 100px;
+    margin-left: 0.7em;
   }
   
 
   .dropdown-content a {
     color: black;
     padding: 15px 16px;
-    text-decoration: none;
+    
     display: block;
   }
   
@@ -133,7 +141,22 @@ header div{
 
 
 
+
+.club-name{
+    display: flex;
+    justify-content: left;
+}
+
+
+.club-name a{
+    font-size: 13px;
+    width:80px;
+    text-align: center;
+}
+
+
 /*section*/
+
 section{
     min-height: 100%;
 }
