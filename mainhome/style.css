@@ -130,7 +130,7 @@ header div h1{
     display: none;
     position: absolute;
     background-color:black;
-    opacity:0.8;
+    opacity:1.1;
     min-width: 100%;
     transition-duration: 0.5s;
     /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
@@ -189,7 +189,7 @@ section{
 footer{
     display: flex;
     justify-content: space-around;
-    background-color: #000;
+    background-color: #2E2E2E;
     height: 100px;
 }
 footer div p{
