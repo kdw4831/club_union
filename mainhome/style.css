@@ -209,4 +209,77 @@ footer div p{
 .facebook_logo{
     width: 40px;
     height: auto;
+
 }
+.logo-position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.section2{
+    display: flex;
+    justify-content: space-around;
+}
+/*슬라이드 바*/
+
+#container{ width: 550px; margin: 0 auto; }
+#container h1{ text-align: center;}
+.album{height: 400px; width: 100%; overflow: hidden;} /* overflow 되면 숨긴다*/
+.images{ 
+    display: flex; height: 400px; width: 2560px;
+    transition-property: transform; /* transform 속성에대해, js코드에 의해 transform 스타일 추가된다*/
+    transition-duration: 1s; /* transition 지속시간 */
+}
+.image{width: 640px; height: 400px;}
+.image:nth-child(1){ background-image: url('sangji1.jpg'); background-repeat: no-repeat; background-size: cover;}
+.image:nth-child(2){ background-image: url("sangji2.jpg"); background-repeat: no-repeat; background-size: cover;}
+.image:nth-child(3){ background-image: url('sangji3.jpg'); background-repeat: no-repeat; background-size: cover;}
+.image:nth-child(4){ background-image: url('sangji4.jpg'); background-repeat: no-repeat; background-size: cover;}
+#container button{
+    width: 100px; height: 30px; border:none;
+    color: none;
+   
+}
+
+.image p{
+    font-size: 20px;
+    color: white;
+    background-color: #b5b0b0d3;
+    text-align: center;
+    padding-right: 70px;
+    opacity: 0.9;
+}
+
+.prev{ 
+    float:left;
+    z-index: 1;
+    transform: translateX(100px) translateY(-100px);
+    width: 40px;
+    height: 40px;
+    border:4px solid white;
+    cursor:pointer;
+}
+.next{ 
+    float:right;
+    transform: translateX(-100px) translateY(-100px);
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    border:4px solid white;
+    cursor: pointer;
+}
+/*공지사항*/
+
+.board{
+    transform: translateY(40px);
+    margin: 0 auto;
+    background-color: rgb(205, 219, 214);
+    width: 550px;
+    height: 400px;
+}
+
+
+
+
