@@ -7,164 +7,126 @@
     color: #000;
     font-family: 'Noto Sans KR', sans-serif;
 }
+hr{
+    border: 1px solid #000;
+}
+
+.wrap{
+    position: relative;
+    height: 100%;
+    letter-spacing: -.5px;
+}
 
 header{
-    display: flex;
-    justify-content: space-between;
-    background-color: black;
-    opacity:0.8;
-    width: 100vw;
-    position: fixed; 
-    z-index: 1;
-}
-header div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-
-header div h1{
-    color: white;
-}
-.sub_header{
-    display: flex;
-    justify-content: right;
-    margin-right: 28px;
-    
-}
-.sub_header li{
-    margin: 1em;
-    margin-bottom: none;
-    font-size: 15px;
-    font-weight: 400;
-    
-}
-.sub_header a{
-    color: white;
-}
-
-
-.header{
-    display: flex;
-    margin-right: 80px;
-    
-}
-
-/*text*/
-.text_topic{
-    margin-top: 30px;
-    text-align: center;
-}
-.text_topic h1{
-    font-size: 50px;
-}
-.text_topic p{
-    font-size: 20px;
-}
-
-
-/*drop-down*/
-.dropbtn {
-    background-color: black;
-    color: white;
-    margin-top:0.5em;
-    margin-bottom: 1em;
-    margin-left:2em;
-    margin-right: 2em;
-    font-size: 20px;
-    border: none;
-  }
-  
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color:black;
-    opacity:0.8;
-    min-width: 100%;
-    transition-duration: 0.5s;
-    /*box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);*/
-    z-index: 1;
-  }
-  .dropdown-content hr{
-    background-color: #a3a3a3;
-    color: black;
-    height: 1px;
-    width: 100px;
-    margin-left: 0.7em;
-  }
-  
-
-  .dropdown-content a {
-    color: white;
-    padding: 15px 16px;
-    
     display: block;
-  }
-  
- 
-  .dropdown-content a:hover {background-color: rgb(73, 74, 74);}
-  
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  .dropdown:hover .dropbtn {background-color: rgb(73, 74, 74);}
-
-
-.club-name{
-    display: flex;
-    justify-content: left;
-}
-
-
-.club-name a{
-    font-size: 13px;
-    width:80px;
     text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.header{
+    margin-top: 57px;
+    width: 416px;
+    height: 98px;
 }
 
-
-
-
-.loginboard{
-    width: 11.5rem;
-    height: 4.5rem;
+.container{
+    display: block;
+    margin-top: 61px;
+}
+.container .content{
+}
+.login-board{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 416px;
+    height: 326px;
     border: 1px solid #000;
-    border-radius: 5px;
-    background-color: #f9ffc7;
+    border-radius: 15px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+.input-border{
+    border: 1px solid #000;
+    width: 366px;
+    height: 107px;
+    border-radius: 15px;
+    margin-left: 25px;
+    margin-top: 38px;
+    font-size: 20px;
+}
+.id-box{
+    width: 346px;
+    height: 33px;
+    margin-left: 8px;
+    margin-top: 10px;
+}
+.id-box > a{
+    margin-left: 6px;
 }
 #id{
     border: none;
-    border-radius: 5px;
-    background-color: rgba(0,0,0,0.3);
-    margin-left: 5px;
+    width: 304px;
+    height: 33px;
+    background-color: #c9c9c9;
+    margin-left: 10px;
+}
+.pw-box{
+    width: 346px;
+    height: 33px;
+    margin-left: 8px;
+    margin-top: 10px;
 }
 #password{
     border: none;
-    border-radius: 5px;
-    background-color: rgba(0,0,0,0.3);
+    width: 304px;
+    height: 33px;
+    background-color: #c9c9c9;
     margin-left: 5px;
 }
+.input-border > hr{
+    margin-top: 10px;
+}
+
+.login-checkbox{
+    margin-left: 37px;
+    margin-top: 9px;
+}
+.login-checkbox > a{
+    font-weight: 600;
+}
+
 #login{
     margin-top: 8px;
-    width: 83px;
+    width: 366px;
+    height: 56px;
     border: none;
-    border-radius: 5px;
-    background-color: rgba(0,0,255,0.6);
+    border-radius: 15px;
+    background-color: #000;
     color: #fff;
-    margin-left: 5px;
+    margin-left: 25px;
+    margin-top: 58px;
+    font-size: 25px;
+    font-weight: 700;
 }
-#signin{
-    width: 83px;
+
+.button-border{
+    margin-left: 64px;
+    margin-top: 6px;
+}
+.button-border li{
+    display: inline-block;
+    margin-right: 14px;
+}
+.button-border li button{
+    background-color: #fff;
     border: none;
-    border-radius: 5px;
-    background-color: rgba(0,0,255,0.6);
-    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.footer{
+    text-align: center;
+    margin-top: 15px;
 }
