@@ -8,126 +8,45 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div>
-            <h1>LOGO</h1>
+    <div id="wrap" class="wrap">
+        <header class="header">
+            <a class="header-content">
+                <h1>동아리연합회</h1>
+                <hr>
+                <h3>로그인</h3>
+            </a>
+        </header>
+        <div id="container" class="container">
+            <div class="content">
+                <div class="login-board" style="">
+                    <div class="input-border">
+                        <div class="id-box">
+                            <a>ID</a>
+                            <input id="id" placeholder="사용자 아이디"> 
+                        </div>
+                        <hr>
+                        <div class="pw-box">
+                            <a>PW</a>
+                            <input type="password" id="password" placeholder="사용자 패스워드">
+                        </div>
+                    </div>
+                    <div class="login-checkbox">
+                        <input type="checkbox" class="checkbox">
+                        <a>로그인 상태 유지</a>
+                    </div>
+                    <button id="login" onclick="login()">LOGIN</button>
+                    <div class="button-border">
+                        <li><button id="findID" onclick="window.location.href = 'findID.html'">아이디 찾기</button></li>
+                        <li><button id="findPW" onclick="window.location.href = 'findPW.html'">비밀번호 찾기</button></li>
+                        <li><button id="signin" onclick="window.location.href = 'Signup.html'">회원가입</button></li>
+                    </div>
+                    <t id="l_status"></t>
+                </div>
+            </div>
         </div>
-        <nav >
-            <ul class="sub_header">
-                <li><a href="#">동연 업무</a></li>
-                <li><a href="#">회장 업무</a></li>
-                <li><a href="#">Sangji home</a></li>
-                <li><a href="..\login_system\index.html">Login</a></li>
-            </ul>
-        
-            <ul class="header">
-                <div class="dropdown">
-                    <button class="dropbtn">중앙동아리</button>
-                    <div class="dropdown-content">
-                      
-                      <a href="#" class="club-topic">문예분과</a>
-                      <hr>
-                        <div class="club-name">
-                            <a href="">스케치</a>
-                            <a href="">about:creative</a>
-                            <a href="">카폴라브</a>
-                        </div>
-                      <a href="#">사회연구분과</a>
-                      <hr>
-                        <div class="club-name">
-                            <a href="">빛이랑</a>
-                            <a href="">바커스</a>
-                            <a href="">로타랙트</a>
-                        </div>
-                        <div class="club-name">
-                            <a href="">그린라이트</a>
-                        </div>
-                      <a href="#">종교분과</a>
-                      <hr>
-                        <div class="club-name">
-                            <a href="">방주짓는사람들</a>
-                            <a href="">JDM</a>
-                            <a href="">CCC</a>
-                        </div>
-                        <div class="club-name">
-                            <a href="">인터콥캠퍼스</a>
-                        </div>
-                      <a href="#">예술분과</a>
-                      <hr>
-                        <div class="club-name">
-                            <a href="">아레나</a>
-                            <a href="">예지레</a>
-                            <a href="">바로크</a>
-                        </div>
-                        <div class="club-name">
-                            <a href="">마야</a>
-                            <a href="">돌핀스</a>
-                        </div>
-                      <a href="#">체육분과</a>
-                      <hr>
-                        <div class="club-name">
-                            <a href="">SMAK</a>
-                            <a href="">KOREA</a>
-                            <a href="">ACE</a>
-                        </div>
-                        <div class="club-name">
-                            <a href="">플라이파워</a>
-                            <a href="">품새단</a>
-                            <a href="">바이얼런츠</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dropdown">
-                    <button class="dropbtn">동아리 연합회</button>
-                    <div class="dropdown-content">
-                      <a href="#">인원소개</a>
-                      <a href="#">가입신청</a>
-                      <a href="#">개발지원자모집</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="dropbtn">행사</button>
-                    <div class="dropdown-content">
-                      <a href="#">축제</a>
-                      <a href="#">교내행사</a>
-                      <a href="#">교외행사</a>
-                      <a href="#">동아리 활동</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="dropbtn">커뮤니티</button>
-                    <div class="dropdown-content">
-                      <a href="#">뉴스</a>
-                      <a href="#">게시판</a>
-                      <a href="#">건의사항</a>
-                      <a href="#">Q&A</a>
-                    </div>
-                </div>
-                <div class="dropdown">
-                    <button class="dropbtn">프로필</button>
-                    <div class="dropdown-content">
-                      <a href="#">Link 1</a>
-                      <a href="#">Link 2</a>
-                      <a href="#">Link 3</a>
-                    </div>
-                </div>
-               
-            </ul>
-        </nav>
-        
-    </header>
-
-    <img src="loginbg.jfif" style="width: 100%; height: auto;">
-    <div class="loginboard">
-        <input id="id" placeholder="사용자 ID"> 
-        <br>
-        <input type="password" id="password" placeholder="사용자 Password">
-        <br>
-        <button id="login" onclick="login()">로그인</button>
-        <button id="signin" onclick="window.location.href = 'Signup.html'">회원가입</button>
-        <br>
-        <t id="l_status"></t>
+        <div class="footer">
+            <h4>Made In Korea</h4>
+        </div>
     </div>
     <script src="signup_fs.js"></script>
 </body>
