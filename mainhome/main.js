@@ -62,7 +62,7 @@ function init(){
 
 
     startAutoSlide(); // 자동 슬라이드 시작
-    images.addEventListener("mouseenter", stopAutoSlide); // 마우스가 이미지 위에 있을 때 자동 슬라이드 일시정지
+    images.addEventListener("mouseenter", stopAutgioSlide); // 마우스가 이미지 위에 있을 때 자동 슬라이드 일시정지
     images.addEventListener("mouseleave", startAutoSlide); // 마우스가 이미지에서 벗어날 때 자동 슬라이드 재시작
 }
 

@@ -2,9 +2,11 @@
 <meta charset='utf-8'/>
 <html>
     <head>
-        <t>회원가입</t>
+        <link rel="stylesheet" href="Signup.css">
+        <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&family=Noto+Sans+KR&family=Single+Day&display=swap" rel="stylesheet">
     </head>
     <body>
+        <!--
         <script src="signup_fs.js"></script>
         <script src="https://smtpjs.com/v3/smtp.js"></script>
         <br>
@@ -29,7 +31,131 @@
         <p id="status"></p>
         <br>
         <button id="signup_btn" disabled="true" onclick="sign_in()">회원가입</button>
-        <button onclick="location.href = 'index.html';">뒤로가기</button>
+        <button onclick="location.href = 'index.html';">뒤로가기</button> 
+        -->
+        <div class="title">
+            <div>
+                <h1>동아리연합회</h1>
+                <hr>
+                <p>회원가입</p>
+
+            </div>
+        </div>
+
+        <div class="register">
+            <div class="form">
+                <div class="center">
+                    <div class="name">
+                        <p class="small-title">이름</p>
+                        <input id="signup_name" placeholder="이름"> 
+
+                    </div>
+                </div>
+
+                <div class="center1">
+                    <div class="name">
+                        <p class="small-title1">이메일</p>
+                        <div class="inner-frame">
+                            <div class="height">
+                                <input id="signup_email" placeholder="사용자 이메일"> 
+                                <button class="button-style">확인하기</button>
+                            </div>
+                            <div>
+                                <input id="signup_code" placeholder="인증코드"> 
+                                <button class="button-style">인증하기</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="center">
+                    <div class="name">
+                        <p class="small-title">전화번호</p>
+                        <input maxlength="11" id="signup_phonenum" placeholder="전화번호 (01012345678)"> 
+
+                    </div>
+                </div>
+                <hr>
+                <div class="center1">
+                    <div class="name">
+                        <p class="small-title2">ID</p>
+                        <div class="inner-frame">
+                            <div class="height">
+                                <input id="signup_id" placeholder="사용할 아이디"> 
+                                <button id="signup_id_check" onclick="check_overwrite()" class="button-style">중복확인</button>
+                            </div>
+                           
+                        </div>
+
+                    </div>
+                </div>
+
+                
+                <div class="center">
+                    <div class="name">
+                        <p class="small-title1">PW</p>
+                        <div class="inner-frame">
+                            <div class="height">
+                                <input  type="password" id="signup_pw" placeholder="사용할 패스워드"> 
+                                
+                            </div>
+                            <div>
+                                <input type="password" id="signup_pw_check" placeholder="패스워드 확인"> 
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+                <div class="center1">
+                    <div class="name">
+                        <p class="small-title3">주소</p>
+                        <div class="inner-frame">
+                            <div class="height">
+                                <input type="text" id="sample6_postcode" placeholder="우편번호"> 
+                                <button type="text" class="button-style" onclick="sample6_execDaumPostcode()" value="우편번호 찾기">우편번호 찾기</button>
+                                
+                            </div>
+                            <div class="height">
+                                <input type="text" id="sample6_address" placeholder="주소"> 
+                                
+                            </div>
+                            <div class="height">
+                                <input type="text" id="sample6_detailAddress" placeholder="상세주소"> 
+                                
+                            </div>
+                            <div>
+                                <input type="text" id="sample6_extraAddress" placeholder="참고항목">
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                   
+                </div>
+
+               
+                
+                <div class="register-button"><button id="signup_btn" disabled="true" onclick="sign_in()"> 회원가입</button>
+                </div>
+                
+            </div>
+            
+      
+            
+        </div>
+        
+
+
+
+       
+
+        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+        <script src="post.js"></script>
+        <script src="signup_fs.js"></script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
     </body>
 
     <script>

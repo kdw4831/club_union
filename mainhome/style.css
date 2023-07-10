@@ -93,6 +93,23 @@ header div h1{
     margin-right: 80px;
     
 }
+.club_logo{
+    width: 100px;
+ 
+    margin-left: 70px;
+}
+.logo-word p{
+    color: white;
+    padding-left: 30px;
+    font-size: 30px;
+    padding-bottom: 0;
+    font-weight: bold;
+}
+.logo-word span{
+    color:white;
+    font-size: 17px;
+    margin-left:17px;
+}
 
 /*text*/
 .text_topic{
