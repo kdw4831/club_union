@@ -20,30 +20,34 @@ function prev(){
         prevBtn.setAttribute("disabled", 'true')
     }
  }
-function next(){ 
-    if(curPos < 3){
-        prevBtn.removeAttribute("disabled")
-        position -= IMAGE_WIDTH
-        /*
-            트랜스폼(변형)의 네가지 속성값(함수)
-            - scale() : 확대 또는 축소
-            - translate() : 위치 이동
-            - rotate() : 회전시키기
-            - skew() : 요소 비틀기
-        */
-        images.style.transform = `translateX(${position}px)`
-        curPos += 1;  
-    }
-    if(curPos == 3){
-        // 뒤로 못 가게 하기
-        nextBtn.setAttribute("disabled", 'true') // 못 누르는 버튼이 됨
+ function next() {
+    if (curPos < 3) {
+        prevBtn.removeAttribute("disabled");
+        position -= IMAGE_WIDTH;
+        images.style.transform = `translateX(${position}px)`;
+        curPos += 1;
+        if (curPos == 3) {
+            nextBtn.setAttribute("disabled", 'true');
+        }
+    } else if (curPos == 3) {
+        // 이미지 인덱스가 3인 경우
+        curPos = 0; // curPos를 0으로 설정
+        position = 0; // position도 0으로 설정
+        images.style.transform = `translateX(${position}px)`;
+        prevBtn.setAttribute("disabled", 'true');
+        nextBtn.removeAttribute("disabled");
     }
 }
 
 function startAutoSlide() {
-    autoSlideInterval = setInterval(() => {
-      next();
-    }, 3000); // 2초마다 다음 이미지로 슬라이드
+    if(curPos==3){
+        curPos==0;
+        position=0;
+    }else{
+        autoSlideInterval = setInterval(() => {
+        next();
+        }, 3000); // 2초마다 다음 이미지로 슬라이드
+    }
   }
   
   function stopAutoSlide() {
