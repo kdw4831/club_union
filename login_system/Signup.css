@@ -60,7 +60,6 @@
     
     display: flex;
     justify-content: center;
-    
 }
 .height{
     margin-bottom: 20px;
@@ -77,6 +76,11 @@
     
 }
 
+#status{
+    font-size: 3px;
+    margin-left: 20px;
+}
+
 .small-title{
     width: 150px;
     text-align: center;
@@ -87,6 +91,7 @@
     width: 150px;
     text-align: center;
     margin-bottom: 64px;
+    padding-bottom: 30px;
     font-weight: bold;
 }
 .small-title2{
