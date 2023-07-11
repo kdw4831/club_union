@@ -1,0 +1,79 @@
+*{
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    background-color: #EDEDED;
+    color: #000;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+hr{
+    border: 1px solid #000;
+}
+
+.wrap{
+    position: relative;
+    height: 100%;
+    letter-spacing: -.5px;
+}
+
+header{
+    display: block;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.header{
+    margin-top: 57px;
+    width: 416px;
+    height: 98px;
+}
+
+.container{
+    display: block;
+}
+.find-border{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 690px;
+    height: 579px;
+    margin-top: 41px;
+    background-color: #fff;
+}
+
+.findID-PWline{
+    font-size: 20px;
+    font-weight: 600;
+}
+.findID-PWline > a{
+    margin-left: 20px;
+}
+
+.find-border2{
+    background-color: #fff;
+}
+.find-border2 > h3{
+    text-align: center;
+    font-size: 22px;
+    margin-top: 69px;
+    background-color: rgba(0,0,0,0);
+}
+
+.input-border{
+    display: block;
+    border: 1px #000 solid;
+    background-color: #fff;
+    border-radius: 15px;
+    width: 592px;
+    height: 296px;
+    margin-left: 49px;
+    margin-top: 71px;
+    background-color: green;
+}
+
+.text{
+    margin-top: 16px;
+}
