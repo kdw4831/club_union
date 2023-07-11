@@ -8,7 +8,7 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 hr{
-    border: 1px solid #000;
+    border: 1px #DCD8D8 solid;
 }
 
 .wrap{
@@ -35,7 +35,7 @@ header{
     margin-top: 61px;
 }
 .container .content{
-    
+
 }
 .login-board{
     position: relative;
@@ -43,12 +43,12 @@ header{
     transform: translateX(-50%);
     width: 416px;
     height: 326px;
-    border: 1px solid #000;
+    border: 2px #DCD8D8 solid;
     border-radius: 15px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 .input-border{
-    border: 1px solid #000;
+    border: 2px #DCD8D8 solid;
     width: 366px;
     height: 107px;
     border-radius: 15px;
