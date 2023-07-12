@@ -136,13 +136,16 @@ header{
     margin-left: 15px;
     margin-top: 30px;
 }
+.fID ,.fPW{
+    cursor: pointer;
 
+}
 .under-line{
     position: absolute;
     background-color: blue;
-    width: 104px;
+    width: 124px;
     height: 4px;
-    left:20px;
+    left:151px;
     top: 26px;
     border-radius: 10px;
     transition: 0.5s;
