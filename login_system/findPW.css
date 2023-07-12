@@ -30,7 +30,6 @@ header{
     height: 98px;
 }
 
-
 .container{
     display: block;
 }
@@ -63,24 +62,24 @@ header{
     background-color: rgba(0,0,0,0);
 }
 
-.input-borderID{
+.input-borderPW{
     display: block;
     border: 2px #DCD8D8 solid;
     border-radius: 15px;
     font-size: 22px;
     width: 592px;
-    height: 240px;
+    height: 296px;
     margin-left: 49px;
     margin-top: 25px;
     margin-bottom: 100px;
 }
-.input-borderID > ui > hr{
+.input-borderPW > ui > hr{
     width: 542px;
     margin-left: 18px;
     margin-top: 25px;
     border: 1px #DCD8D8 solid;
 }
-.input-borderID > ui > li{
+.input-borderPW > ui > li{
     margin-top: 25px;
 }
 .email-dlsemd{
@@ -96,7 +95,12 @@ header{
     height: 37px;
     margin-left: 44px;
 }
+.input_ID{
+    width: 455px;
+    height: 37px;
+    margin-left: 22px; 
 
+}
 .input_email1{
     margin-left: 22px;
     margin-right: 9px;
@@ -113,14 +117,14 @@ header{
     width: 119px;
     height: 37px;
 }
-.input_name, .input_email1, .input_email2, .section{
+.input_name, .input_ID, .input_email1, .input_email2, .section{
     font-size: 20px;
     border: none;
     background-color: #EBEBEB;
 }
 
 
-.findID_button{
+.findPW_button{
     border: none;
     background-color: #000;
     color: #fff;
@@ -130,5 +134,17 @@ header{
     width: 561px;
     height: 42px;
     margin-left: 15px;
-    margin-top: 65px;
+    margin-top: 30px;
+}
+
+.under-line{
+    position: absolute;
+    background-color: blue;
+    width: 104px;
+    height: 4px;
+    left:20px;
+    top: 26px;
+    border-radius: 10px;
+    transition: 0.5s;
+
 }
