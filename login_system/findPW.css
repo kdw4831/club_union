@@ -10,9 +10,7 @@
 hr{
     border: 1px solid #000;
 }
-.fPW{
-    border-bottom: 3px solid blue;
-}
+
 .wrap{
     position: relative;
     height: 100%;
@@ -64,7 +62,7 @@ header{
     background-color: rgba(0,0,0,0);
 }
 
-.input-border{
+.input-borderPW{
     display: block;
     border: 2px #DCD8D8 solid;
     border-radius: 15px;
@@ -75,13 +73,13 @@ header{
     margin-top: 25px;
     margin-bottom: 100px;
 }
-.input-border > ui > hr{
+.input-borderPW > ui > hr{
     width: 542px;
     margin-left: 18px;
     margin-top: 25px;
     border: 1px #DCD8D8 solid;
 }
-.input-border > ui > li{
+.input-borderPW > ui > li{
     margin-top: 25px;
 }
 .email-dlsemd{
@@ -126,7 +124,7 @@ header{
 }
 
 
-.findID_button{
+.findPW_button{
     border: none;
     background-color: #000;
     color: #fff;
@@ -137,4 +135,16 @@ header{
     height: 42px;
     margin-left: 15px;
     margin-top: 30px;
+}
+
+.under-line{
+    position: absolute;
+    background-color: blue;
+    width: 104px;
+    height: 4px;
+    left:20px;
+    top: 26px;
+    border-radius: 10px;
+    transition: 0.5s;
+
 }

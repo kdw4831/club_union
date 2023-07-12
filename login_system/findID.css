@@ -30,9 +30,7 @@ header{
     height: 98px;
 }
 
-.fID{
-    border-bottom: 3px solid blue;
-}
+
 .container{
     display: block;
 }
@@ -65,7 +63,7 @@ header{
     background-color: rgba(0,0,0,0);
 }
 
-.input-border{
+.input-borderID{
     display: block;
     border: 2px #DCD8D8 solid;
     border-radius: 15px;
@@ -76,13 +74,13 @@ header{
     margin-top: 25px;
     margin-bottom: 100px;
 }
-.input-border > ui > hr{
+.input-borderID > ui > hr{
     width: 542px;
     margin-left: 18px;
     margin-top: 25px;
     border: 1px #DCD8D8 solid;
 }
-.input-border > ui > li{
+.input-borderID > ui > li{
     margin-top: 25px;
 }
 .email-dlsemd{
@@ -98,12 +96,7 @@ header{
     height: 37px;
     margin-left: 44px;
 }
-.input_ID{
-    width: 455px;
-    height: 37px;
-    margin-left: 22px; 
 
-}
 .input_email1{
     margin-left: 22px;
     margin-right: 9px;
