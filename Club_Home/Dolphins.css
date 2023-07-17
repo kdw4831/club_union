@@ -1,0 +1,102 @@
+*{
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    color: #000;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #000;
+    opacity: 0.9;
+    width: 100vw;
+    position: fixed;
+    z-index: 1;
+}
+header div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub_header{
+    display: flex;
+    justify-content: right;
+    margin-right: 72px;
+}
+.sub_header li{
+    margin: 1rem;
+    margin-bottom: none;
+    font-size: 15px;
+    font-weight: 400;
+}
+.sub_header a{
+    color: white;
+}
+
+.header{
+    display: flex;
+    margin-right: 48px;
+}
+
+.dolphins_logo{
+    width: 100px;
+    margin-left: 70px;
+}
+.logo_word p{
+    color: white;
+    padding-left: 30px;
+    font-size: 30px;
+    padding-bottom: 0;
+    font-weight: bold;
+}
+.logo_word span{
+    color: white;
+    font-size: 17px;
+    margin-left: 17px;
+}
+.club_name{
+    display: flex;
+    align-items: center;
+    border-left: 1px solid white;
+    height: 70px;
+    margin-left: 30px;
+}
+
+.dropbtn{
+    background-color: black;
+    color: white;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    margin-left: 2em;
+    margin-right: 2em;
+    font-size: 20px;
+    border: none;
+}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background-color: black;
+    opacity: 1.1;
+    min-width: 100%;
+    transition-duration: 0.5s;
+    z-index: 1;
+}
+.dropdown-content a{
+    color: white;
+    padding: 15px 16px;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #6228f5;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #6228f5;}
