@@ -36,7 +36,7 @@
         // 쿼리에 등록
         $email = $_POST["email"];
         $con = mysqli_connect("localhost", "userid", "c1722172", "cookDB") or die ("MYSQL 접속 실패");
-        $sql = "INSERT INTO verification VALUES ('".$email."', '".$key."')"; 
+        $sql = "INSERT INTO verification VALUES ('".$email."', '".$key."', '')"; 
         $ret = mysqli_query($con, $sql);
         mysqli_close($con);
 

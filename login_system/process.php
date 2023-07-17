@@ -3,7 +3,7 @@
     $sql = $_POST['sql'];
     $ret = mysqli_query($con, $sql);
 
-    if ($_POST['type'] === "get_data") {
+    if ($_POST['type'] === "get_from_sql") {
         $ret_collectall = mysqli_query($con, $sql);
         $rows = array();
 
@@ -14,7 +14,6 @@
         echo json_encode($rows);  
         return;
     };
-
 
     mysqli_close($con);
     echo "success";
