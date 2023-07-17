@@ -100,3 +100,57 @@ header div{
 .dropdown-content a:hover {background-color: #6228f5;}
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: #6228f5;}
+
+
+
+
+.section{
+    display: flex;
+    justify-content: space-between;
+    
+    padding-top: 108.4px;
+}
+.poster{
+
+   
+    width: 770px;
+    height: 636px;
+   
+}
+.frame{
+    margin-right: 150px;
+}
+
+.produce{
+    border-radius: 20px;
+    margin: 30px;
+    background-color: #a291ce;
+    width: 350px;
+    height: 100px;
+}
+.title{
+    text-align: center;
+    
+   
+}
+.title h1{
+    background-color: aqua;
+    width: 140px;
+    position: relative;
+    bottom:15px;
+    left: 105px;
+}
+
+.notice{
+    margin: 30px;
+    background-color:rgb(202, 202, 202);
+    width: 350px;
+    height: 220px;
+}
+
+.QandA{
+    margin: 30px;
+    background-color: #6f6f71;
+    width: 350px;
+    height: 220px;
+}
