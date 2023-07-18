@@ -58,11 +58,11 @@
                         <div class="inner-frame">
                             <div class="height">
                                 <input id="signup_email" placeholder="사용자 이메일"> 
-                                <button class="button-style">확인하기</button>
+                                <button id="verification_sendmail" onclick="send_email()" class="button-style">확인하기</button>
                             </div>
                             <div>
                                 <input id="signup_code" placeholder="인증코드"> 
-                                <button class="button-style">인증하기</button>
+                                <button id="verification" onclick="check_key()" class="button-style">인증하기</button>
                             </div>
                         </div>
 
@@ -84,6 +84,8 @@
                             <div class="height">
                                 <input id="signup_id" placeholder="사용할 아이디"> 
                                 <button id="signup_id_check" onclick="check_overwrite()" class="button-style">중복확인</button>
+                                <br>
+                                <t class="status_id" id="status_id"></t>
                             </div>
                            
                         </div>

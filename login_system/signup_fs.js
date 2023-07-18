@@ -13,11 +13,10 @@ function sign_in() {
     _phone_number = document.getElementById("signup_phonenum").value // 입력한 이메일
     _email_value = document.getElementById("signup_email").value // 입력한 이메일
     _name_value = document.getElementById("signup_name").value // 입력한 이름
-    
-    // _authdate 추출
-    _now = new Date();
-    _year = _now.getFullYear(), _month = _now.setMonth(_now.getMonth() +1), _date = _now.getDate(), _min = _now.getMinutes(), _sec = _now.getSeconds();
-    _authdate = `${_year}-${_month}-${_date} ${_min}:${_sec}`; // 가입 기준 시각 'y-m-d m:s' 정렬 (query) 
+    _post_1 = document.getElementById("sample6_postcode").value // 우편번호 1
+    _post_2 = document.getElementById("sample6_address").value // 우편번호 2
+    _post_3 = document.getElementById("sample6_detailAddress").value // 우편번호 3
+    _post_4 = document.getElementById("sample6_extraAddress").value // 우편번호 4
 
     // 값 정확히 입력했는지
     if (_id_value === "") {
@@ -43,6 +42,9 @@ function sign_in() {
     } else if (_name_value === "") {
         alert("이름을 입력해 주십시오")
         return
+    } else if (_post_1 === "" && _post_2 === "" && _post_3 === "" && _post_4 === "") {
+        alert("우편번호 및 상세 주소를 입력해 주십시오.")
+        return
     }
 
     // 모든 인증이 완료되었는지
@@ -54,11 +56,19 @@ function sign_in() {
         return;
     }
 
+    // _authdate 추출
+    _now = new Date();
+    _year = _now.getFullYear(), _month =_now.getMonth(_now.setMonth(_now.getMonth() +1)), _date = _now.getDate(), _hour = _now.getHours(), _min = _now.getMinutes(), _sec = _now.getSeconds();
+    _authdate = `${_year}-${_month}-${_date} ${_hour}:${_min}:${_sec}`; // 가입 기준 시각 'y-m-d h:m:s' 정렬 (query) 
+
+    // _address 추출
+    _address = `${_post_1}||${_post_2}||${_post_3}||${_post_4}`
+
     xhr = new XMLHttpRequest();
-    xhr.open("POST", "signup.php", true);
+    xhr.open("POST", "process.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // 변수 넘길 시 필요함
     // 쿼리 구문 전달
-    xhr.send("type=" + encodeURIComponent("normal") + "&sql=" + encodeURIComponent(`insert into user_list (username, email, phone_number, authdate, id, pw) value ('${_name_value}', '${_email_value}', '${_phone_number}', '${_authdate}', '${_id_value}', '${_pw_value}')`));
+    xhr.send("type=" + encodeURIComponent("normal") + "&sql=" + encodeURIComponent(`insert into user_list (username, email, phone_number, address, authdate, id, pw, club_name) value ('${_name_value}', '${_email_value}', '${_phone_number}', '${_address}', '${_authdate}', '${_id_value}', '${_pw_value}', 'None')`));
 
     xhr.onload = function() {
         if (this.responseText === "success") {
@@ -66,6 +76,7 @@ function sign_in() {
             location.href = "index.html";
         } else {
             alert("회원가입 진행 중 에러가 발생하였습니다.\n관리자에게 문의해주십시오.");
+            console.log(this.responseText);
         }
     }   
 }
@@ -88,10 +99,10 @@ function send_email() {
 
     // 이메일 중복 확인
     xhr = new XMLHttpRequest();
-    xhr.open("POST", "signup.php", true);
+    xhr.open("POST", "process.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     input_email = document.getElementById("signup_email").value;
-    xhr.send("type=" + encodeURIComponent("verification") + "&sql=" + encodeURIComponent(`select * from user_list where email='${input_email}'`));
+    xhr.send("type=" + encodeURIComponent("get_from_sql") + "&sql=" + encodeURIComponent(`select * from user_list where email='${input_email}'`));
     xhr.onload = function() {
         sql_result = JSON.parse(this.responseText);
         if (Object.keys(sql_result).length != 0) {
@@ -103,19 +114,26 @@ function send_email() {
             _button.disabled = true;
             _button2 = document.getElementById("verification");
             _button2.disabled = false;
+
+            // 이메일칸 비활성화
+            document.getElementById("signup_email").disabled = true;
             alert(`인증 이메일이 '${_email}'로 전송되었습니다.\n잠시만 기다려주세요.`);
             
             // 이메일 전송
             xhr2 = new XMLHttpRequest();
-            xhr2.open("POST", "sendmail.php", true);
+            xhr2.open("POST", `../sendmail.php`, true);
             xhr2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-            xhr2.send("key=" + encodeURIComponent(generated_key) + "&email=" + encodeURIComponent(_email));
+            // 메일 내용 및 키 전달
+            xhr2.send("email=" + encodeURIComponent(_email)
+            + "&body=" + encodeURIComponent(`요청하신 인증 건에 대한 비밀번호는 ${generated_key} 입니다.`)
+            + "&subject=" + encodeURIComponent(`동아리연합회 메일 인증 시스템`)
+            + "&division=" + encodeURIComponent("email_verification_sendmail"));
             xhr2.onload = function() {
                 if (this.responseText === "Email could not be sent") { // 만약 잘 안갔다면
                     alert("서버 통신 과정에서 오류가 발생했습니다.")
                     _button.disabled = false;
                     _button2.disabled = true;
-                }
+                }   
             }   
         }
     }
@@ -123,11 +141,11 @@ function send_email() {
 
 function check_key() {
     xhr = new XMLHttpRequest();
-    xhr.open("POST", "signup.php", true);
+    xhr.open("POST", "process.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); // 변수 넘길 시 필요함
     // 쿼리 구문 전달
     _email = document.getElementById("signup_email").value;
-    xhr.send("sql=" + encodeURIComponent(`select * from verification where useremail='${_email}'`) + "&type=" + encodeURIComponent("verification"));
+    xhr.send("sql=" + encodeURIComponent(`select * from verification where useremail='${_email}'`) + "&type=" + encodeURIComponent("get_from_sql"));
 
     let _state = "not done";
     xhr.onload = function() {
@@ -139,17 +157,19 @@ function check_key() {
                 document.getElementById("verification").disabled = true; // 버튼 비활성화
                 document.getElementById("verification").textContent = "인증됨";
                 xhr2 = xhr = new XMLHttpRequest();
-                xhr2.open("POST", "signup.php");
+                xhr2.open("POST", "process.php");
                 xhr2.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 // javascript sql 구문을 php 변수로 전달
                 xhr2.send("type=" + encodeURIComponent("normal") + "&sql=" + encodeURIComponent(`delete from verification where useremail='${document.getElementById("signup_email").value}'`))
                 let _state = "done";
+                // 폼 비활성화
+                document.getElementById("signup_code").disabled = true;
                 return;
             }
         }
         
         if (_state != "done") {
-            alert("인증번호가 일치하지 않습니다.");
+            alert("인증코드가 일치하지 않습니다.");
         }
     }
 }
@@ -163,9 +183,9 @@ function check_overwrite(type) {
     } 
 
     xhr = new XMLHttpRequest();
-    xhr.open("POST", "signup.php", true);
+    xhr.open("POST", "process.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    xhr.send("type=" + encodeURIComponent("verification") + "&sql=" + encodeURIComponent(`SELECT EXISTS(SELECT 1 FROM user_list WHERE id = '${_userid}');`));
+    xhr.send("type=" + encodeURIComponent("get_from_sql") + "&sql=" + encodeURIComponent(`SELECT EXISTS(SELECT 1 FROM user_list WHERE id = '${_userid}');`));
     xhr.onload = function() {
         _var = JSON.parse(this.responseText);        
         _found_count = Object.values(_var[0])[0]; // 찾은 값의 수
@@ -182,11 +202,11 @@ function check_overwrite(type) {
 
 function login() {
     xhr = new XMLHttpRequest();
-    xhr.open("POST", "signup.php", true);
+    xhr.open("POST", "process.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     input_id = document.getElementById("id").value;
     input_pw = document.getElementById("password").value;
-    xhr.send("type=" + encodeURIComponent("verification") + "&sql=" + encodeURIComponent(`select * from user_list where id='${input_id}'`));
+    xhr.send("type=" + encodeURIComponent("get_from_sql") + "&sql=" + encodeURIComponent(`select * from user_list where id='${input_id}'`));
     xhr.onload = function() {
         sql_result = JSON.parse(this.responseText);
         if (Object.keys(sql_result).length === 0) {
@@ -202,6 +222,7 @@ function login() {
                     document.getElementById("password").disabled = true;
                     document.getElementById("login").disabled = true;
                     document.getElementById("signin").disabled = true;
+                    /*
                     // 정보 표시
                     document.getElementById("l_status_name").textContent = `안녕하세요! ${sql_result[0].username}님`;
                     document.getElementById("l_status_authdate").textContent = `가입일자 : ${sql_result[0].authdate}`;
@@ -212,6 +233,7 @@ function login() {
                     _new.setAttribute("id", "logout_btn");
                     _new.textContent = "로그아웃";
                     logout_btn.appendChild(_new);
+                    */
                 } else {
                     alert("비밀번호가 일치하지 않습니다.");
                 }
@@ -231,12 +253,4 @@ function logout() {
     document.getElementById("login").disabled = false;
     document.getElementById("signin").disabled = false;
     document.getElementById("logout_btn").remove();
-}
-
-
-
-// 1) ID / PASSWORD 암호화 
-// 2) EMAIL 중복확인 (V)
-// 3) 로그아웃 (V) 
-// 4) 로그인 + 동방 예약 시스템    
-// 5) 회장인증 방식 고안하기 
+};

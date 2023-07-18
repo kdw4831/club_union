@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        #description {
+            height: 200px;
+            width: 400px;
+        }
+    </style>
+    <meta charset='utf-8'/>
+    <script src="functions.js"></script>
+    <head>
+        <t>동아리 가입신청</t>
+        <br>
+    </head>
+    <body>
+        <t>가입 신청 동아리 : </t>
+        <select id="club_name">
+            <option value="돌핀스">돌핀스</option>
+            <option value="어바웃 크리에이티브">어바웃 크리에이티브</option>
+        </select>
+        <br>
+
+        <t>이름</t>
+        <input id="name" size="10" placeholder="지원자 이름">
+        <br>
+
+        <t>학번</t>
+        <input id="student_number" size="10" placeholder="지원자 이름">
+        <br>
+
+        <t>학과</t>
+        <input id="major" size="10" placeholder="지원자 학과">
+        <br>
+
+        <t>출생년도</t>
+        <input value="2003" type="number" id="birthyear" size="10" placeholder="출생년도" min="1990" max="2005">
+        <br>
+
+        <t>이메일</t>
+        <input id="email" size="20" placeholder="club_union@naver.com" min="1990" max="2005">
+        <br>
+        <t>* 가입 승인 시 해당 이메일로 안내 문자를 발송합니다.</t>
+        <br>
+
+        <br>
+        <t>지원 동기</t>
+        <br>
+        <textarea id="description" placeholder="지원 동기를 100자 이상 입력하세요"></textarea>
+        <br>
+        <t id="count_view">0자/100자</t>
+        <br>
+        <br>
+        <button onclick="submit()">가입 신청</button>
+    </body>
+    <script>
+        function word_count() {
+            _target = document.getElementById("count_view");
+            _length = document.getElementById("description").value.length;
+            _target.textContent = `${_length}자/100자`;
+        }
+        
+        document.getElementById("description").addEventListener("input", word_count);
+    </script>
+</html> 

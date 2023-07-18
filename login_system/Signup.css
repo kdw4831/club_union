@@ -57,7 +57,6 @@
 }
 
 .center1{
-    
     display: flex;
     justify-content: center;
 }
@@ -67,7 +66,6 @@
 .name{
     display: flex;
     margin-right: 35px;
-    
     align-items: center;
 }
 .inner-frame{
@@ -124,6 +122,16 @@
     background-color: black;
     cursor: pointer;
 }
+
+.button-style:disabled{
+    width: 100px;
+    height: 33px;
+    margin-left: 20px;
+    color: white;
+    background-color: gray;
+    cursor: pointer;
+}
+
 .register-button{
     margin-top: 20px;
     display: flex;
