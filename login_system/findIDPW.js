@@ -1,5 +1,13 @@
-let mode="fID";
+let mode="fID"
 let tabs=document.querySelectorAll(".findID-PWline div , a");
+
+
+function changeMode(newMode){
+
+    mode = newMode;
+    console.log(mode);
+    render()
+}
 
 for(let i=2; i<4; i++){
     tabs[i].addEventListener("click",function(event){filter(event) })
@@ -21,7 +29,11 @@ function change_event() {
 Array.prototype.random = function () {
     return this[Math.floor((Math.random()*this.length))];
 };
-    
+  
+
+
+
+
 function render(){
     if(mode=='fID'){
         let resultHtml=''
@@ -61,7 +73,7 @@ function render(){
                 </div>`
         document.getElementById("find-border2").innerHTML=resultHtml;
 
-    }else {
+    }else if(mode=="fPW"){
         let resultHtml=''
         resultHtml +=`
         <div class="find-border2">
@@ -97,8 +109,8 @@ function render(){
         </div>`
         document.getElementById("find-border2").innerHTML=resultHtml;
     }
-    _target = document.getElementById("email_type");
-    _target.addEventListener("change", change_event);
+    //_target = document.getElementById("email_type");
+    //_target.addEventListener("change", change_event);
 }
 
 
@@ -196,4 +208,4 @@ function find_information(type) {
 render()
 
 // 기본 폼
-document.getElementsByClassName("input_phonenum")[0].value = "010";
+//document.getElementsByClassName("input_phonenum")[0].value = "010";
