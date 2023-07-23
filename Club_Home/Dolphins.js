@@ -10,8 +10,8 @@ const colors = [
    * 헤더의 색을 단계적으로 바꿈
    */
   function changeBackgroundColor() {
-    const count = 70;
-    const time = 2;
+    const count = 80;
+    const time = 5;
     const header = document.querySelector('header');
     const randomIndex = Math.floor(Math.random() * colors.length);
     const targetColor = colors[randomIndex];
