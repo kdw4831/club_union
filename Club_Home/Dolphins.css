@@ -8,11 +8,45 @@
     font-family: 'Noto Sans KR', sans-serif;
 }
 
+
+/* 팝업 컨테이너 스타일 */
+#popupContainer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+  }
+  
+  /* 팝업 내용 스타일 */
+  #popupContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* 팝업 닫기 버튼 스타일 */
+  #closePopupBtn {
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+
+
+/*헤더 시작*/
 header{
     display: flex;
     justify-content: space-between;
     background-color: #000;
-    opacity: 0.9;
     width: 100vw;
     position: fixed;
     z-index: 1;
@@ -100,6 +134,7 @@ header div{
 .dropdown-content a:hover {background-color: #6c6c6c;}
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: #6c6c6c;}
+/*헤더 끝*/
 
 
 
@@ -107,34 +142,65 @@ header div{
 .section{
     display: flex;
     justify-content: space-between;
-    
     padding-top: 108.4px;
+    background-color: blue;
 }
 .poster{
-
-   
-    width: 770px;
-    height: 636px;
-   
+    position: relative;
+    width: 100%;
+}
+.poster_image{
+    width: 100%;
+    margin-bottom: -5px;
+}
+.poster_title{
+    top: 10%;
+    left: 50%;
+    font-size: 48px;
+}
+.poster_text{
+    top: 18%;
+    left: 50%;
+    font-size: 36px;
+}
+.poster_title, .poster_text{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-shadow: 3px 3px 5px black;
+    /*
+    text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;
+    */
 }
 .frame{
-    margin-right: 150px;
+    width: auto;
+    background-color: rgb(188, 88, 88);
+    
 }
-
+.frame div{
+    /*background-color: blue;*/
+}
 .produce{
     border-radius: 20px;
     margin: 30px;
     background-color: #a291ce;
     width: 350px;
     height: 100px;
+    margin-top: 60px;
+}
+.produce div p{
+    text-align: center;
 }
 .title{
     text-align: center;
-    
-   
 }
 .title h1{
-    background-color: aqua;
+    background-color: rgb(88, 211, 211);
+    border-radius: 10px;
     width: 140px;
     position: relative;
     bottom:15px;
@@ -146,11 +212,49 @@ header div{
     background-color:rgb(202, 202, 202);
     width: 350px;
     height: 220px;
+    margin-top: 70px;
 }
-
 .QandA{
     margin: 30px;
     background-color: #6f6f71;
     width: 350px;
     height: 220px;
+    margin-top: 70px;
 }
+
+
+/*푸터 시작*/
+footer{
+    display: flex;
+    justify-content: space-around;
+    background-color: #2E2E2E;
+    height: 100px;
+}
+footer div p{
+    display: inline-block;
+    vertical-align: bottom;
+    color: white;
+    margin-top: 35px;
+}
+.footer-logo{
+    
+    width:80px;
+    padding-top: 20px;
+    
+}
+.instagram_logo{
+    width: 40px;
+    height: auto;
+    padding-right: 10px;
+}
+.facebook_logo{
+    width: 40px;
+    height: auto;
+
+}
+.logo-position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*푸터 끝*/
