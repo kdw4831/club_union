@@ -1,3 +1,38 @@
+// 팝업 보이기 함수
+function showPopup() {
+  document.getElementById("popupContainer").style.display = "block";
+}
+
+// 팝업 닫기 함수
+function closePopup() {
+  document.getElementById("popupContainer").style.display = "none";
+}
+
+// "오늘하루 열지않기" 체크박스 처리
+document.getElementById("chkDontShowAgain").addEventListener("change", function() {
+  if (this.checked) {
+    // 체크박스가 선택되었을 때, 쿠키에 "dontShowPopup" 저장 (1일 동안 유지)
+    document.cookie = "dontShowPopup=true; max-age=" + (60 * 60 * 24);
+  }
+});
+
+// 페이지 로드 시 팝업 노출 여부 확인
+window.addEventListener("load", function() {
+  if (!document.cookie.includes("dontShowPopup=true")) {
+    // 쿠키에 "dontShowPopup"이 없는 경우에만 팝업 보이기
+    showPopup();
+  }
+});
+
+// 닫기 버튼 클릭 시 팝업 닫기
+document.getElementById("closePopupBtn").addEventListener("click", function() {
+  closePopup();
+});
+
+
+
+
+
 const colors = [
     'rgb(255, 0, 0)',  // 빨간색
     'rgb(0, 255, 0)',  // 초록색
@@ -10,8 +45,8 @@ const colors = [
    * 헤더의 색을 단계적으로 바꿈
    */
   function changeBackgroundColor() {
-    const count = 70;
-    const time = 2;
+    const count = 80;
+    const time = 5;
     const header = document.querySelector('header');
     const randomIndex = Math.floor(Math.random() * colors.length);
     const targetColor = colors[randomIndex];
