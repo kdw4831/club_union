@@ -1,9 +1,21 @@
+<?php
+
+$code =(isset($_GET['code']) && $_GET['code'] !='') ? $_GET['code'] :'';
+
+
+switch($code){
+    case 'freeboard': $board_title = '자유게시판'; break;
+    case 'notice' : $board_title ='공지사항'; break;
+    default : $code='free'; $board_title='자유게시판';
+};
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> <?=$board_title ?> 글쓰기</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -17,8 +29,8 @@
         <!--w-25는 부모 컨테이너에서 25%만큼 차지 하겠다
             d-flex는  display=flex인 것과 동일 한 것이다
             gap-2는 가로 간격-->
-        <div class="mt-4 mb-2">
-            <span class="h2">자유게시판</span>
+        <div class="mt-4 mb-3">
+            <span class="h2"><?= $board_title ?></span>
         </div>
         <div class="mb-2 d-flex gap-2">
             <input type="text" name="name" class="form-control w-25" 
@@ -45,6 +57,9 @@
     <script>
         const btn_submit= document.querySelector("#btn_submit")
         btn_submit.addEventListener("click",()=>{
+
+        
+
             const id_name=document.querySelector('#id_name')
             const id_password=document.querySelector('#id_password')
             const btn_subject=document.querySelector('#id_subject')
@@ -63,13 +78,53 @@
                 btn_subject.focus()
                 return false
             }
+            //summernote 부분은 코드를 가져왔기 때문에 사용하려면 자체
+            //코드를 가져와줘야됨
             const markupStr = $('#summernote').summernote('code');
             console.log("markupStr")
-
             if(markupStr=="<p><br></p>"){
                 alert('내용을 입력하세요.')
             }
-        });
+            const aa=window.location.search.replace("?","").split(/[=?&]/)
+            console.log(aa)
+            let param={}
+            //code=notice&b=dkddkdk
+            //['code','notice','b','dkddkdk']
+            for(let i=0; i<aa.length; i++){
+                param[aa[i]]= aa[++i] // param['code']= 'notice'....param['b']= 'dkddkdk'
+            }                          // i 값은 두배씩 증가한다
+            
+            const code= param['code']
+
+            const f1= new FormData()
+            f1.append('name', id_name.value)
+            f1.append("password", id_password.value)
+            f1.append("subject",btn_subject.value)
+            f1.append("content",markupStr) //form 객체가 아니여서 value를 안써도 즉시 접근 가능
+            f1.append('code',code)
+           
+            const xhr=new XMLHttpRequest()
+            xhr.open("POST","./write.php","true")
+            xhr.send(f1)
+            btn_submit.disabled =true // 중복으로 보내기 방지
+            xhr.onload =()=>{
+                if(xhr.status==200){
+                    alert("글등록에 성공했습니다.")
+                   /* const data=JSON.parse(xhr.responseText)
+                    if(data.result =="success"){
+                        alert("글이 성공적으로 등록되었습니다.")
+                        self.location.href='/list.html?code='+code;
+                    }else{
+                        alert("글 등록이 실패했습니다.")
+                    }*/
+
+                }else{
+                    alert('통신에 실패했습니다.')
+                }
+            } 
+         
+
+        })
 
 
         $('#summernote').summernote({
