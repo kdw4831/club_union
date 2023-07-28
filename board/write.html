@@ -1,13 +1,6 @@
 <?php
 
-$code =(isset($_GET['code']) && $_GET['code'] !='') ? $_GET['code'] :'';
-
-
-switch($code){
-    case 'freeboard': $board_title = '자유게시판'; break;
-    case 'notice' : $board_title ='공지사항'; break;
-    default : $code='free'; $board_title='자유게시판';
-};
+include "config.php";
 
 ?>
 <!DOCTYPE html>
@@ -109,14 +102,14 @@ switch($code){
             btn_submit.disabled =true // 중복으로 보내기 방지
             xhr.onload =()=>{
                 if(xhr.status==200){
-                    alert("글등록에 성공했습니다.")
-                   /* const data=JSON.parse(xhr.responseText)
+                   
+                    const data=JSON.parse(xhr.responseText)
                     if(data.result =="success"){
                         alert("글이 성공적으로 등록되었습니다.")
                         self.location.href='/list.html?code='+code;
                     }else{
                         alert("글 등록이 실패했습니다.")
-                    }*/
+                    }
 
                 }else{
                     alert('통신에 실패했습니다.')

@@ -59,13 +59,13 @@ foreach($matches[1] AS $key =>$val){
 }
 
 $imglist= implode('|',$img_array);
-
+$ip=$_SERVER['REMOTE_ADDR'];
 
 
 //DB에 insert
 
-$sql="INSERT INTO testboard(code,name,subject,password,content,imglist,r_date)
-VALUES(:code,:name,:subject,:password,:content,:imglist,NOW())";
+$sql="INSERT INTO testboard(code,name,subject,password,content,imglist,ip,r_date)
+VALUES(:code,:name,:subject,:password,:content,:imglist,:ip,NOW())";
 
 $stmt=$conn->prepare($sql);
 $stmt->bindParam(':code',$code);
@@ -74,9 +74,10 @@ $stmt->bindParam(':subject',$subject);
 $stmt->bindParam(':content',$content);
 $stmt->bindParam(':password',$pwd_hash);
 $stmt->bindParam(':imglist',$imglist);
+$stmt->bindParam(':ip',$ip);
 $stmt->execute();
 //{"result" :"success"}
-/*
+
 $arr=['result'=>'success'];
 $j=json_encode($arr); 
 
@@ -84,4 +85,4 @@ $j=json_encode($arr);
 die($j);  
 
 
-*/
+
