@@ -1,5 +1,5 @@
 <?php
-
+    
     include "config.php";
     include 'dbconfig.php';
 
@@ -35,6 +35,11 @@
     <title><?=$board_title ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <style>
+        #bbs_content img{
+            max-width: 100%;
+        }
+    </style>
 </head>
 <body>
 
@@ -51,7 +56,7 @@
             <span><?= $row['r_date']; ?></span>
             
         </div>
-        <div class="p-3">
+        <div class="p-3" id="bbs_content" >
             <?= $row['content']; ?> 
         </div>
         <div class="d-flex gap-2 p-3">
@@ -128,7 +133,7 @@
         xhr.open("POST","./process.php",'true')
         const f1=new FormData(document.modal_form)
         f1.append("idx",param["idx"])
-        f1.append("code",param['code'])
+        f1.append("code",param["code"])
         xhr.send(f1)
         xhr.onload=()=>{
             if(xhr.status ==200){

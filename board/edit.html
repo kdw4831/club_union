@@ -1,14 +1,41 @@
 <?php
+session_start();
+$edit_idx=(isset($_SESSION['edit_idx']) && $_SESSION['edit_idx'] !='' && is_numeric($_SESSION['edit_idx'])) ? $_SESSION['edit_idx'] : '';
 
-include "config.php";
+$idx=(isset($_GET['idx']) && $_GET['idx'] !='' && is_numeric($_GET['idx'])) ? $_GET['idx'] : '';
+
+if($idx==''){
+    die("<script> alert('게시물 번호가 없습니다.'); history.go(-1);</script>");
+
+}
+
+if($edit_idx != $idx){
+    die("<script> alert('수정권한이 없는 게시물입니다.'); history.go(-1);</script>");
+}
+
+
+
+include 'config.php';
+include 'dbconfig.php';
+
+$sql="SELECT *FROM testboard WHERE idx=:idx";
+$stmt= $conn->prepare($sql);
+$stmt-> bindParam(':idx',$idx);
+$stmt->setFetchMode(PDO::FETCH_ASSOC);
+$stmt->execute();
+
+$row=$stmt->fetch();
+
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> <?=$board_title ?> 글쓰기</title>
+    <title> <?=$board_title ?> 글수정</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -18,7 +45,7 @@ include "config.php";
 <body>
 
 
-    <div class="container w-50">
+    <div class="container w-50" >
         <!--w-25는 부모 컨테이너에서 25%만큼 차지 하겠다
             d-flex는  display=flex인 것과 동일 한 것이다
             gap-2는 가로 간격-->
@@ -26,14 +53,14 @@ include "config.php";
             <span class="h2"><?= $board_title ?></span>
         </div>
         <div class="mb-2 d-flex gap-2">
-            <input type="text" name="name" class="form-control w-25" 
+            <input type="text" name="name" value="<?=$row['name']?>" class="form-control w-25" 
             placeholder="글쓴이"autocomplete="off" id="id_name"> <!--클릭했을 때 자동완성글이 안나오게 하는거-->
             <input type="password" name="password" class="form-control w-25" 
             placeholder="비밀번호"autocomplete="off" id="id_password">            
         </div>
        
         <div>
-            <input type="text" name="subject" class="form-control mb-2" autocomplete="off" id="id_subject">
+            <input type="text" name="subject" value="<?=$row['subject']?>" class="form-control mb-2" autocomplete="off" id="id_subject">
         </div>
         
         <div id="summernote"></div>
@@ -41,13 +68,31 @@ include "config.php";
         
         <div class="mt-2 d-flex gap-2 justify-content-end">
             <button class="btn btn-primary" id="btn_submit">확인</button>
-            <button class="btn btn-secondary" >목록</button>
+            <button class="btn btn-secondary" id="btn_list" >목록</button>
         </div>
   
     </div>
     
 
     <script>
+
+        const aa=window.location.search.replace("?","").split(/[=?&]/)
+            console.log(aa)
+            let param={}
+            //code=notice&b=dkddkdk
+            //['code','notice','b','dkddkdk']
+            for(let i=0; i<aa.length; i++){
+                param[aa[i]]= aa[++i] // param['code']= 'notice'....param['b']= 'dkddkdk'
+            }                          // i 값은 두배씩 증가한다
+            
+            const code= param['code']
+
+
+        const btn_list = document.querySelector("#btn_list")
+        btn_list.addEventListener("click",()=>{
+            self.location.href='./list.html?code=' +code
+        })
+
         const btn_submit= document.querySelector("#btn_submit")
         btn_submit.addEventListener("click",()=>{
 
@@ -61,11 +106,7 @@ include "config.php";
                 id_name.focus() //alert된다음에 글쓴이 부분 포커싱
                 return false// if문이 안이어지게 브레이크거는 느낌?
             }
-            if(id_password.value==''){
-                alert("비밀번호를 입력하세요.")
-                id_password.focus()
-                return false
-            }
+          
             if(btn_subject.value==''){
                 alert("제목을 입력하세요.")
                 btn_subject.focus()
@@ -78,16 +119,7 @@ include "config.php";
             if(markupStr=="<p><br></p>"){
                 alert('내용을 입력하세요.')
             }
-            const aa=window.location.search.replace("?","").split(/[=?&]/)
-            console.log(aa)
-            let param={}
-            //code=notice&b=dkddkdk
-            //['code','notice','b','dkddkdk']
-            for(let i=0; i<aa.length; i++){
-                param[aa[i]]= aa[++i] // param['code']= 'notice'....param['b']= 'dkddkdk'
-            }                          // i 값은 두배씩 증가한다
-            
-            const code= param['code']
+          
 
             const f1= new FormData()
             f1.append('name', id_name.value)
@@ -95,9 +127,9 @@ include "config.php";
             f1.append("subject",btn_subject.value)
             f1.append("content",markupStr) //form 객체가 아니여서 value를 안써도 즉시 접근 가능
             f1.append('code',code)
-           
+            f1.append('idx',param['idx'])
             const xhr=new XMLHttpRequest()
-            xhr.open("POST","./write.php","true")
+            xhr.open("POST","./edit.php","true")
             xhr.send(f1)
             btn_submit.disabled =true // 중복으로 보내기 방지
             xhr.onload =()=>{
@@ -105,10 +137,14 @@ include "config.php";
                    
                     const data=JSON.parse(xhr.responseText)
                     if(data.result =="success"){
-                        alert("글이 성공적으로 등록되었습니다.")
+                        alert("글이 성공적으로 수정되었습니다.")
+                        self.location.href='view.html?code='+code + '&idx='+param['idx'];
+                    }else if(data.result=='denied'){
+                        alert("수정 권한이 없습니다.")
+                    
                         self.location.href='/list.html?code='+code;
                     }else{
-                        alert("글 등록이 실패했습니다.")
+                        alert("글 수정이 실패했습니다.")
                     }
 
                 }else{
@@ -123,7 +159,7 @@ include "config.php";
         $('#summernote').summernote({
           placeholder: '글 내용을 입력해주세요',
           tabsize: 2,
-          height: 300,
+          height: 600,
           toolbar: [
             ['style', ['style']],
             ['font', ['bold', 'underline', 'clear']],
@@ -134,6 +170,9 @@ include "config.php";
             ['view', ['fullscreen', 'codeview', 'help']]
           ]
         });
+
+        const markupStr = `<?=$row['content']?>`;
+        $('#summernote').summernote('code', markupStr);
       </script>
 </body>
 </html>
