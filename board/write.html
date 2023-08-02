@@ -41,13 +41,27 @@ include "config.php";
         
         <div class="mt-2 d-flex gap-2 justify-content-end">
             <button class="btn btn-primary" id="btn_submit">확인</button>
-            <button class="btn btn-secondary" >목록</button>
+            <button class="btn btn-secondary" id="btn_list">목록</button>
         </div>
   
     </div>
     
 
     <script>
+        //목록버튼
+        const btn_list= document.querySelector("#btn_list")
+        btn_list.addEventListener("click",()=>{
+            const aa=window.location.search.replace("?","").split(/[=?&]/)
+            console.log(aa)
+            let param={}
+            for(let i=0; i<aa.length; i++){
+                param[aa[i]]= aa[++i] // param['code']= 'notice'....param['b']= 'dkddkdk'
+            }                          // i 값은 두배씩 증가한다
+            
+            const code= param['code']
+            self.location.href='./list.html?code='+ code
+        })
+        //확인버튼
         const btn_submit= document.querySelector("#btn_submit")
         btn_submit.addEventListener("click",()=>{
 
