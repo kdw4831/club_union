@@ -28,7 +28,7 @@
         </div>
         <nav>
             <ul class="sub_header">
-                <li><a href="#">로그인</a></li>
+                <li><a href="..\login_system\index.html">로그인</a></li>
             </ul>
             <ul class="header">
                 <div class="dropdown">
@@ -65,8 +65,14 @@
     <section class="section">
         <!--<img class="dolphins_BG" src="#">-->
         <div class="poster">
-            <video class="dolphins_video" src="dolphins_movie.mp4" autoplay loop muted></video>
-            <!--<img src="Image2.png" class="poster_image">-->
+            <div class="video-container">
+                <video class="dolphins_video" autoplay loop muted>
+                    <source src="dolphins_movie.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <!--<img src="Image2.png" class="poster_image">
+            <video class="dolphins_video" src="dolphins_movie.mp4" autoplay loop muted></video>-->
             <p class="poster_title">상지대 43대 밴드동아리 돌핀스</p>
             <p class="poster_text">Rock And Roll !!</p>
         </div>

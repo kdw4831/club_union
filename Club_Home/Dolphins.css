@@ -33,6 +33,10 @@
     border-radius: 5px;
   }
   
+  #popupContent p img{
+    width: 400px;
+    height: auto;
+  }
   /* 팝업 닫기 버튼 스타일 */
   #closePopupBtn {
     display: block;
@@ -142,12 +146,17 @@ header div{
 .section{
     display: flex;
     justify-content: space-between;
-    padding-top: 108.4px;
-    background-color: blue;
+    padding-top: 105px;
+    background-color: black;
 }
 .poster{
     position: relative;
     width: 100%;
+    height: auto;
+}
+.video-container{
+    display: flex;
+    height: 100vh;
 }
 .dolphins_video{
     width: 100%;
@@ -161,6 +170,8 @@ header div{
     top: 10%;
     left: 50%;
     font-size: 48px;
+    width: 100%;
+    text-align: center;
 }
 .poster_text{
     top: 18%;
@@ -193,9 +204,9 @@ header div{
     border-radius: 15px;
     margin: 30px;
     background-color: #e1e1e1;
-    width: 350px;
+    width: 300px;
     height: 100px;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 .produce div p{
     text-align: center;
@@ -213,7 +224,7 @@ header div{
     width: 160px;
     position: relative;
     bottom:15px;
-    left: 95px;
+    left: 70px;
 }
 
 .notice{
@@ -222,9 +233,9 @@ header div{
     box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.6);
     background-color:rgb(202, 202, 202);
     border-radius: 15px;
-    width: 350px;
+    width: 300px;
     height: 215px;
-    margin-top: 85px;
+    margin-top: 65px;
 }
 .notice_content{
     background-color: rgba(255, 255, 255, 0.4);
@@ -248,9 +259,9 @@ header div{
     box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.6);
     background-color: #6f6f71;
     border-radius: 15px;
-    width: 350px;
+    width: 300px;
     height: 210px;
-    margin-top: 85px;
+    margin-top: 65px;
 }
 .QandA_content{
     background-color: rgba(255, 255, 255, 0.4);
