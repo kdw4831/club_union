@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 팝업 컨테이너 -->
+    <div id="popupContainer">
+        <div id="popupContent">
+            <p><img src="dolphins_hongbo.png"></p>
+            <label>
+                <input type="checkbox" id="chkDontShowAgain"> 오늘하루 열지않기
+            </label>
+            <button id="closePopupBtn">닫기</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <img src="dolphins_logo1.png" class="dolphins_logo">
+            <div class="logo_word">
+                <p>상지대학교<br><span>동아리 연합회</span></p>
+                <p id="clubname" class="club_name">동아리 이름</p>
+            </div>
+        </div>
+        <nav>
+            <ul class="sub_header">
+                <li><a href="../login_system/index.html">로그인</a></li>
+            </ul>
+            <ul class="header">
+                <div class="dropdown">
+                    <button class="dropbtn">게시판</button>
+                    <div class="dropdown-content">
+                        <a href="#">전체 게시판</a>
+                        <a href="#">동아리 게시판</a>
+                        <a href="#">자유 게시판</a>
+                    </div>
+                </div>
+    
+                <div class="dropdown">
+                    <button class="dropbtn">동아리 소개</button>
+                    <div class="dropdown-content">
+                        <a href="#">인사말</a>
+                        <a href="#">동아리 구성원</a>
+                        <a href="#">가입 문의</a>
+                    </div>
+                </div>
+    
+                <div class="dropdown">
+                    <button class="dropbtn">동아리 활동</button>
+                    <div class="dropdown-content">
+                        <a href="#">교내 행사</a>
+                        <a href="#">교외 행사</a>
+                        <a href="#">그 외</a>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <script src="mainclub.js"></script>
+</body>
+</html>
