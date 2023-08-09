@@ -63,6 +63,8 @@ include "config.php";
         })
         //확인버튼
         const btn_submit= document.querySelector("#btn_submit")
+        
+        
         btn_submit.addEventListener("click",()=>{
 
         
@@ -120,7 +122,7 @@ include "config.php";
                     const data=JSON.parse(xhr.responseText)
                     if(data.result =="success"){
                         alert("글이 성공적으로 등록되었습니다.")
-                        self.location.href='/list.html?code='+code;
+                        self.location.href='./list.html?code='+code;
                     }else{
                         alert("글 등록이 실패했습니다.")
                     }
