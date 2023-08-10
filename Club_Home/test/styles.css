@@ -1,0 +1,22 @@
+.animation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f3f3;
+}
+
+.animated-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.animated-text.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.spacer {
+    height: 100vh;
+}
