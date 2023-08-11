@@ -57,7 +57,7 @@ header{
     background-color: rgba(0, 0, 0, 0.9);
     width: 100vw;
     position: fixed; 
-    z-index: 1;
+    z-index: 4;
 }
 header div{
     display: flex;
@@ -200,21 +200,12 @@ section{
     width: 100%;
     height: auto;
 }
-.video_mask{
-    position: absolute;
-    top: 0;
-    margin-top: 110px;
-    padding-bottom: 6px;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
-}
 .text_area{
     z-index: 3;
     position: absolute;
     top: 24%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, 20px);
     width: 100%;
     text-align: center;
 }
@@ -225,9 +216,14 @@ section{
     text-shadow: 3px 3px 4px black;
     font-size: 60px;
     opacity: 0;
-    animation: fadeIn 2s ease-in-out forwards;
-    animation-fill-mode: both;
+    transition: opacity 1.5s ease-in-out , transform 1.5s ease-in-out;
 }
+.animated-text.show{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -238,6 +234,7 @@ section{
         transform: translateY(0);
     }
 }
+*/
 
 .text_topic h1, .text_topic span{
     color: #000;
@@ -245,50 +242,24 @@ section{
 }
 .text_topic span{
     font-size: 16px;
-    font-weight: 500;
-}
-
-
-
-footer{
-    display: flex;
-    justify-content: space-around;
-    background-color: #2E2E2E;
-    height: 100px;
-}
-footer div p{
-    display: inline-block;
-    vertical-align: bottom;
-    color: white;
-    margin-top: 35px;
-}
-.footer-logo{
-    
-    width:80px;
-    padding-top: 20px;
-    
-}
-.instagram_logo{
-    width: 40px;
-    height: auto;
-    padding-right: 10px;
-}
-.facebook_logo{
-    width: 40px;
-    height: auto;
-
-}
-.logo-position{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-weight: 800;
 }
 
 
 .section2{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
+
+/*공지사항*/
+.board{
+    transform: translateY(40px);
+    margin: 0 auto;
+    background-color: rgb(205, 219, 214);
+    width: 550px;
+    height: 400px;
+}
+
 /*슬라이드 바*/
 
 #container{ width: 550px; margin: 0 auto; }
@@ -339,16 +310,40 @@ footer div p{
     border-radius: 10px;
     cursor: pointer;
 }
-/*공지사항*/
 
-.board{
-    transform: translateY(40px);
-    margin: 0 auto;
-    background-color: rgb(205, 219, 214);
-    width: 550px;
-    height: 400px;
+
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    background-color: #2E2E2E;
+    height: 100px;
 }
+footer div p{
+    display: inline-block;
+    vertical-align: bottom;
+    color: white;
+    margin-top: 35px;
+}
+.footer-logo{
+    
+    width:80px;
+    padding-top: 20px;
+    
+}
+.instagram_logo{
+    width: 40px;
+    height: auto;
+    padding-right: 10px;
+}
+.facebook_logo{
+    width: 40px;
+    height: auto;
 
-
-
+}
+.logo-position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
