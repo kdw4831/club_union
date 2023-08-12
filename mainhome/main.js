@@ -1,4 +1,4 @@
-let curPos= 0; // 현재 보고 있는 이미지의 인덱스 번호!
+/*let curPos= 0; // 현재 보고 있는 이미지의 인덱스 번호!
 let position = 0; // 현재 .images 의 위치값!
 const IMAGE_WIDTH = 640; // 한번 움직일 때 이동해야 할 거리!
 let autoSlideInterval; // 자동 슬라이드를 위한 인터벌 변수
@@ -9,19 +9,19 @@ const nextBtn = document.querySelector(".next")
 const images = document.querySelector(".images")
 
 function prev(){
-    if(curPos > 0){
-    nextBtn.removeAttribute("disabled") /* disabled 속성 제거*/
-    position += IMAGE_WIDTH /* position 값 증가 */
+    if(curPos >= 0){
+    nextBtn.removeAttribute("disabled") // disabled 속성 제거
+    position += IMAGE_WIDTH // position 값 증가 
     
-    images.style.transform = `translateX(${position}px)` /* images 스타일 transform, x축 변경*/
-    curPos -= 1; /* curPos 값 감소*/
+    images.style.transform = `translateX(${position}px)` // images 스타일 transform, x축 변경
+    curPos -= 1; // curPos 값 감소
     }
-    if(curPos == 0){ /* 이미지 index값 0 되면 prev 못하게 */
+    if(curPos < 0){ // 이미지 index값 0 되면 prev 못하게 
         prevBtn.setAttribute("disabled", 'true')
     }
  }
  function next() {
-    if (curPos < 3) {
+    if (curPos <= 3) {
         prevBtn.removeAttribute("disabled");
         position -= IMAGE_WIDTH;
         images.style.transform = `translateX(${position}px)`;
@@ -29,7 +29,7 @@ function prev(){
         if (curPos == 3) {
             nextBtn.setAttribute("disabled", 'true');
         }
-    } else if (curPos == 3) {
+    } else if (curPos > 3) {
         // 이미지 인덱스가 3인 경우
         curPos = 0; // curPos를 0으로 설정
         position = 0; // position도 0으로 설정
@@ -71,3 +71,43 @@ function init(){
 }
 
 init();
+*/
+
+
+
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+const indicators = document.querySelectorAll(".indicator");
+
+function showSlide(n) {
+  if (n < 0) {
+    currentSlide = slides.length - 1;
+  } else if (n >= slides.length) {
+    currentSlide = 0;
+  } else {
+    currentSlide = n;
+  }
+
+  slides.forEach(slide => slide.style.opacity = 0);
+  slides[currentSlide].style.opacity = 1;
+  updateIndicators();
+}
+
+function changeSlide(n) {
+  showSlide(currentSlide + n);
+}
+
+function updateIndicators() {
+  indicators.forEach(indicator => indicator.textContent = "○");
+  indicators[currentSlide].textContent = "●";
+}
+
+function autoSlide() {
+  changeSlide(1);
+}
+
+// 5초마다 자동 슬라이드 실행
+setInterval(autoSlide, 5000);
+
+showSlide(currentSlide);
+

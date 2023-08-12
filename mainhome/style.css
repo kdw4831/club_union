@@ -246,7 +246,10 @@ section{
 }
 
 
-.section2{
+.section2, .content{
+    margin: 50px;
+}
+.content{
     display: flex;
     justify-content: space-between;
 }
@@ -255,26 +258,28 @@ section{
 .board{
     transform: translateY(40px);
     margin: 0 auto;
-    background-color: rgb(205, 219, 214);
+    border-bottom: 1px #000 solid;
+    /*background-color: rgb(205, 219, 214);*/
     width: 550px;
     height: 400px;
 }
 
 /*슬라이드 바*/
 
-#container{ width: 550px; margin: 0 auto; }
+/*#container{ width: 550px; margin: 0 auto; }
 #container h1{ text-align: center;}
 .album{height: 400px; width: 100%; overflow: hidden;} /* overflow 되면 숨긴다*/
-.images{ 
+/*.images{ 
     display: flex; height: 400px; width: 2560px;
     transition-property: transform; /* transform 속성에대해, js코드에 의해 transform 스타일 추가된다*/
-    transition-duration: 1s; /* transition 지속시간 */
-}
+    /*transition-duration: 1s; /* transition 지속시간 */
+/*}
 .image{width: 640px; height: 400px;}
 .image:nth-child(1){ background-image: url('sangji1.jpg'); background-repeat: no-repeat; background-size: cover;}
 .image:nth-child(2){ background-image: url("sangji2.jpg"); background-repeat: no-repeat; background-size: cover;}
 .image:nth-child(3){ background-image: url('sangji3.jpg'); background-repeat: no-repeat; background-size: cover;}
 .image:nth-child(4){ background-image: url('sangji4.jpg'); background-repeat: no-repeat; background-size: cover;}
+
 #container button{
     width: 100px; height: 30px; border:none;
     color: none;
@@ -309,10 +314,44 @@ section{
     border:4px solid white;
     border-radius: 10px;
     cursor: pointer;
+}*/
+
+/*슬라이드 이미지*/
+.container{
+    transform: translateY(40px);
+    width: 550px;
+    height: 400px;
+    margin: 0 auto;
+}
+.slideshow-container{
+    margin: 0 auto;
+}
+.slide{
+    width: 640px;
+    height: 320px;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.slide > img{
+    width: 550px;
+    height: 340px;
+}
+.indicators{
+    padding-top: 340px;
+    text-align: center;
+    cursor: pointer;
+}
+.prev, .next{
+    margin: 20px;
+}
+.prev{
+    margin-left: 0;
 }
 
 
 
+/*푸터*/
 footer{
     display: flex;
     justify-content: space-around;

@@ -1,20 +1,35 @@
-const animatedText = document.querySelector('.animated-text');
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+const indicators = document.querySelectorAll(".indicator");
 
-const options = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.5 // When 50% of the element is visible
-};
+function showSlide(n) {
+  if (n < 0) {
+    currentSlide = slides.length - 1;
+  } else if (n >= slides.length) {
+    currentSlide = 0;
+  } else {
+    currentSlide = n;
+  }
 
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show'); // Add 'show' class for animation
-            observer.unobserve(entry.target); // Stop observing once animation is triggered
-        }
-    });
-}, options);
+  slides.forEach(slide => slide.style.opacity = 0);
+  slides[currentSlide].style.opacity = 1;
+  updateIndicators();
+}
 
-// 이 부분에서 'animatedText' 대신 실제 사용하는 대상 요소의 선택자를 사용해야 합니다.
-// 예: const elementToObserve = document.querySelector('.some-element');
-observer.observe(animatedText);
+function changeSlide(n) {
+  showSlide(currentSlide + n);
+}
+
+function updateIndicators() {
+  indicators.forEach(indicator => indicator.textContent = "○");
+  indicators[currentSlide].textContent = "●";
+}
+
+function autoSlide() {
+  changeSlide(1);
+}
+
+// 5초마다 자동 슬라이드 실행
+setInterval(autoSlide, 5000);
+
+showSlide(currentSlide);
