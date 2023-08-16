@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset='utf-8'/>
+    <script src="commute_fs.js"></script>
+    <head>
+        <t2>출퇴근 기록 시스템</t2>
+        <br>
+    </head>
+    <body>
+        <t1>정보 입력 : </t1>
+        <select id="name">
+            <option value="박상언">박상언</option>
+            <option value="안재화">안재화</option>
+            <option value="김재현">김재현</option>
+            <option value="이찬민">이찬민</option>
+            <option value="홍유정">홍유정</option>
+            <option value="정인호">정인호</option>
+        </select>
+
+        <select id="state">
+            <option value="출근">출근</option>
+            <option value="퇴근">퇴근</option>
+        </select>
+        <br>
+        <button onclick="log_append()">출퇴근 입력</button>
+        <br>
+        <button onclick="log_check()">기록 확인</button>
+        <br>    
+        <t>출퇴근 현황</t>
+        <table border="1">
+            <tr>
+                <td>박상언</td>
+                <td id="박상언">OFF</td>
+            </tr>
+            <tr>
+                <td>안재화</td>
+                <td id="안재화">OFF</td>
+            </tr>
+            <tr>
+                <td>김재현</td>
+                <td id="김재현">OFF</td>
+            </tr>
+            <tr>
+                <td>이찬민</td>
+                <td id="이찬민">OFF</td>
+            </tr>
+            <tr>
+                <td>홍유정</td>
+                <td id="홍유정">OFF</td>
+            </tr>
+            <tr>
+                <td>정인호</td>
+                <td id="정인호">OFF</td>
+            </tr>
+        </table>
+        <script>initialize()</script>
+    </body>
+</html> 

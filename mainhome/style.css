@@ -246,12 +246,14 @@ section{
 }
 
 
-.section2, .content{
-    margin: 50px;
+.section2{
+    margin: 100px;
 }
 .content{
     display: flex;
-    justify-content: space-between;
+}
+.content > div{
+    align-items: center;
 }
 
 /*공지사항*/
@@ -261,7 +263,7 @@ section{
     border-bottom: 1px #000 solid;
     /*background-color: rgb(205, 219, 214);*/
     width: 550px;
-    height: 400px;
+    height: 375px;
 }
 
 /*슬라이드 바*/
