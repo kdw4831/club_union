@@ -100,3 +100,137 @@ header div{
 .dropdown-content a:hover {background-color: #6c6c6c;}
 .dropdown:hover .dropdown-content {display: block;}
 .dropdown:hover .dropbtn {background-color: #6c6c6c;}
+/*헤더 끝*/
+
+.content{
+    display: flex;
+}
+
+.leftboard{
+    width: 25%;
+    height: 100vh;
+    background-color: #6B6B6B;
+}
+
+
+.todolist, .commute{
+    width: 90%;
+    height: 40%;
+    margin-left: 5%;
+    margin-top: 35%;
+    border: 1px #000 solid;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.tdl_top{
+    padding: 5px;
+    border-bottom: 1px #000 solid;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background-color: #D9D9D9;
+}
+.tdl_title{
+    margin-left: 5px;
+    font-size: 32px;
+}
+.tdl_bottom{
+    position: absolute;
+    border: 1px #000 solid;
+    bottom: 0;
+}
+.tdl_content1{
+    margin: 10px;
+    border: 1px #000 solid;
+}
+.tdl_content1_checkbox{
+    position: relative;
+    padding-left: 30px; /* 여백을 주어 체크박스 크기를 조절 */
+    cursor: pointer;
+    user-select: none;
+}
+.tdl_content1_checkbox input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #ccc;
+    border-radius: 3px;
+}
+.tdl_content1_checkbox input:checked + .checkmark{
+    background-color: #2196F3;
+}
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+.tdl_content1_checkbox input:checked + .checkmark:after{
+    display: block;
+}
+.tdl_content1_checkbox .checkmark:after{
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+.tdl_content1_text{
+
+}
+.tdl_content1_button{
+}
+
+.commute{
+    margin-top: 20px;
+    margin-left: 5%;
+}
+
+
+
+
+
+
+
+
+/*푸터*/
+footer{
+    display: flex;
+    justify-content: space-around;
+    background-color: #2E2E2E;
+    height: 100px;
+}
+footer div p{
+    display: inline-block;
+    vertical-align: bottom;
+    color: white;
+    margin-top: 35px;
+}
+.footer-logo{
+    
+    width:80px;
+    padding-top: 20px;
+    
+}
+.instagram_logo{
+    width: 40px;
+    height: auto;
+    padding-right: 10px;
+}
+.facebook_logo{
+    width: 40px;
+    height: auto;
+
+}
+.logo-position{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
