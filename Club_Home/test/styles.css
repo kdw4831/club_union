@@ -1,60 +1,8 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  .slideshow-container {
-    max-width: 800px;
-    position: relative;
-    margin: auto;
-  }
-  
-  .slide {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-  
-  img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 10px;
-    font-weight: bold;
-  }
-  
-  .prev {
-    left: 10px;
-  }
-  
-  .next {
-    right: 10px;
-  }
-  
-  .indicators {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-  }
-  
-  .indicator {
-    margin: 0 5px;
-    font-size: 20px;
-    cursor: pointer;
-  }
-  
-  .indicator.active {
-    color: green;
-  }
-  
+.clock {
+  font-family: Arial, sans-serif;
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

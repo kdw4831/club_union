@@ -1,35 +1,13 @@
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slide");
-const indicators = document.querySelectorAll(".indicator");
-
-function showSlide(n) {
-  if (n < 0) {
-    currentSlide = slides.length - 1;
-  } else if (n >= slides.length) {
-    currentSlide = 0;
-  } else {
-    currentSlide = n;
-  }
-
-  slides.forEach(slide => slide.style.opacity = 0);
-  slides[currentSlide].style.opacity = 1;
-  updateIndicators();
+function updateTime() {
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  const seconds = String(now.getSeconds()).padStart(2, '0');
+  const timeString = `${hours}:${minutes}:${seconds}`;
+  
+  document.getElementById("time").textContent = timeString;
 }
 
-function changeSlide(n) {
-  showSlide(currentSlide + n);
-}
-
-function updateIndicators() {
-  indicators.forEach(indicator => indicator.textContent = "○");
-  indicators[currentSlide].textContent = "●";
-}
-
-function autoSlide() {
-  changeSlide(1);
-}
-
-// 5초마다 자동 슬라이드 실행
-setInterval(autoSlide, 5000);
-
-showSlide(currentSlide);
+// 매 초마다 시간 업데이트
+setInterval(updateTime, 1000);
+updateTime(); // 초기 시간 업데이트
