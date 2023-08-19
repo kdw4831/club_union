@@ -52,33 +52,106 @@
 
     <section class="section">
         <content class="content">
+
             <div class="leftboard">
+                <!--ToDoList-->
                 <div class="todolist">
                     <div class="tdl_top">
                         <strong class="tdl_title">할일 목록</strong>
                     </div>
-                    <div class="tdl_mid">
-                        <div class="tdl_content1">
-                            <label class="tdl_content1_checkbox">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                                checkboxlabel1
-                            </label>
-                            <a class="tdl_content1_text">3대 500 측정</a>
-                            <input type="button" class="tdl_content1_button" value="X">
-                        </div>
-                    </div>
+                    <ul class="tdl_mid">
+                        <li class="tdl_container">
+                            <div class="tdl_content">
+                                <input type="checkbox" class="tdl_content_checkbox">
+                                <a class="tdl_content_text">3대 500 측정</a>
+                            </div>
+                            <div><span class="tdl_content_button" onclick="">X</span></div>
+                        </li>
+                        
+                        <li class="tdl_container">
+                            <div class="tdl_content">
+                                <input type="checkbox" class="tdl_content_checkbox">
+                                <a class="tdl_content_text">3대 700 측정</a>
+                            </div>
+                            <div><span class="tdl_content_button" onclick="">X</span></div>
+                        </li>
+
+                        <li class="tdl_container">
+                            <div class="tdl_content">
+                                <input type="checkbox" class="tdl_content_checkbox">
+                                <a class="tdl_content_text">동아리 수금 돌리기</a>
+                            </div>
+                            <div><span class="tdl_content_button" onclick="">X</span></div>
+                        </li>
+
+                        <li class="tdl_container">
+                            <div class="tdl_content">
+                                <input type="checkbox" class="tdl_content_checkbox">
+                                <a class="tdl_content_text">김효찬 괴롭히기</a>
+                            </div>
+                            <div><span class="tdl_content_button" onclick="">X</span></div>
+                        </li>
+
+                        <li class="tdl_container">
+                            <div class="tdl_content">
+                                <input type="checkbox" class="tdl_content_checkbox">
+                                <a class="tdl_content_text">코딩하기</a>
+                            </div>
+                            <div><span class="tdl_content_button" onclick="">X</span></div>
+                        </li>
+                    </ul>
                     <div class="tdl_bottom">
-                        <input type="text" placeholder="해야 할 일을 입력해 주세요.">
-                        <input type="button" value="작성">
+                        <input type="text" placeholder="해야 할 일을 입력해 주세요." class="tdl_bottom_text">
+                        <input type="button" value="작성" class="tdl_bottom_button">
                     </div>
                 </div>
+                <!--Communte-->
                 <div class="commute">
-                    <p>출퇴근</p>
+                    <div class="commute_top">
+                        <strong class="commute_title">출/퇴근 현황</strong>
+                        <span class="commute_record_button" onclick="">기록 확인</span>
+                        <span class="commute_out_button" onclick="">퇴근</span>
+                        <span class="commute_in_button" onclick="">출근</span>
+                    </div>
+                    <div class="commute_content">
+                        <ul class="commute_in">
+                            <li>● <a class="member_name">박상언</a>&nbsp;<a class="start_time">12 : 19 ~</a></li>
+                            <li>● <a class="member_name">정인호</a>&nbsp;<a class="start_time">13 : 31 ~</a></li>
+                            <li>● <a class="member_name">홍유정</a>&nbsp;<a class="start_time">11 : 47 ~</a></li>
+                        </ul>
+                        <ul class="commute_out">
+                            <li>● <a class="member_name">이찬민</a></li>
+                            <li>● <a class="member_name">김재현</a></li>
+                            <li>● <a class="member_name">이원섭</a></li>
+                            <li>● <a class="member_name">조경아</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="notice">
-                <p>공지사항</p>
+
+            <!--Timer-->
+            <div class="timer">
+                <div id="time"></div>
+            </div>
+
+
+
+            <!--Notice-->
+            <div class="right_board">
+                <img src="bisang_BG.jpg">
+                
+                <div class="notice">
+                    <a class="notice_title">공지사항</a><hr>
+                    <ul class="notice_container">
+                        <li>●&nbsp;<a class="notice_content">asdf</a></li><hr>
+                        <li>●&nbsp;<a class="notice_content">asdf</a></li><hr>
+                        <li>●&nbsp;<a class="notice_content">asdf</a></li><hr>
+                        <li>●&nbsp;<a class="notice_content">asdf</a></li><hr>
+                        <li>●&nbsp;<a class="notice_content">asdf</a></li><hr>
+                        <li>●&nbsp;<a class="notice_content">asdf</a></li><hr>
+                        <li>●&nbsp;<a class="notice_content">asdf</a></li><hr>
+                    </ul>
+                </div>
             </div>
         </content>
     </section>
@@ -123,5 +196,6 @@
             동아리연합회 x About:Creative</p></div>
     </footer>
 
+    <script src="main.js"></script>
 </body>
 </html>
