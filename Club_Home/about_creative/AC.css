@@ -109,3 +109,40 @@ header div{
 .poster{
     width: 450px;
 }
+
+body{
+    background-image: url(background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.form{
+    display:flex;
+
+    justify-content: space-between;
+
+}
+.introduce{
+    width:400px;
+    height: 500px;
+    margin-top:80px;
+    margin: left 200px;
+    border-radius: 20px;
+    background-color: #454545;
+    opacity: 0.8;
+}
+.introduce h2{
+    color: white;
+    text-align: center;
+    padding-bottom: 100px;
+}
+.introduce p{
+    color: white;
+    padding-left: 20px;
+    font-weight: 1em;
+}
+.memo{
+    width:600px;
+    margin:0;
+    padding:0;
+}
