@@ -149,3 +149,8 @@ header{
     transition: 0.5s;
 
 }
+
+.footer{
+    text-align: center;
+    margin-top: 15px;
+}

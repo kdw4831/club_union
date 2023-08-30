@@ -111,3 +111,6 @@ setInterval(autoSlide, 5000);
 
 showSlide(currentSlide);
 
+function support(){
+  alert("개발 지원은 010-4614-6248로 연락 부탁드리겠습니다.\n감사합니다.")
+}
