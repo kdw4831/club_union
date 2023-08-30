@@ -82,7 +82,8 @@ header div{
 }
 
 .club_logo{
-    width: 100px;
+    width: auto;
+    height: 90px;
     margin-left: 70px;
 }
 .logo_word p{
@@ -171,7 +172,7 @@ section{
 footer{
     display: flex;
     justify-content: space-around;
-    background-color: #2E2E2E;
+    background-color: #2e2e2e;
     height: 100px;
 }
 footer div p{
@@ -182,7 +183,8 @@ footer div p{
 }
 .footer-logo{
     
-    width:90px;
+    width:auto;
+    height: 75px;
     padding-top: 20px;
     
 }

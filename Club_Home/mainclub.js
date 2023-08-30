@@ -67,6 +67,7 @@ if (club_name) {
   if (club_name === 'Sketch') {
     clubname = '스케치';
     clubaddr = '민주관 4층';
+    clublogo = 'Club_LOGO/sketch_logo.png';
   } else if (club_name === 'AboutCreative'){
     clubname = 'About:Creative';
     clubaddr = '민주관 3층';
@@ -75,12 +76,14 @@ if (club_name) {
     clubname = '카폴라브'
   } else if (club_name === 'WithLight'){
     clubname = '빛이랑';
+    clublogo = 'Club_LOGO/withlight_logo.png';
   } else if (club_name === 'Bacchus'){
     clubname = '바커스';
   } else if (club_name === 'Rotarect'){
     clubname = '로타랙트';
   } else if (club_name === 'GreenLight'){
     clubname = '그린라이트';
+    clublogo = 'Club_LOGO/greenlight_logo.png';
   } else if (club_name === 'ArkBuilders'){
     clubname = '방주짓는 사람들';
     clubaddr = '예술관 5층';
@@ -96,19 +99,23 @@ if (club_name) {
   } else if (club_name === 'Arena'){
     clubname = '아레나';
     clubaddr = '민주관 4층';
-  } else if (club_name === 'Yejirae'){
+    clublogo = 'Club_LOGO/arena_logo.png';
+  } else if (club_name === 'Yejire'){
     clubname = '예지레';
     clubaddr = '노천극장';
+    clublogo = 'Club_LOGO/yejire_logo.png';
   } else if (club_name === 'Baroke'){
     clubname = '바로크';
     clubaddr = '민주관 4층';
+    clublogo = 'Club_LOGO/baroke_logo.png';
   } else if (club_name === 'Maya'){
     clubname = '마야';
     clubaddr = '예술관 7층';
+    clublogo = 'Club_LOGO/maya_logo.png';
   } else if (club_name === 'Dolphins') {
     clubname = '돌핀스';
     clubaddr = '노천극장';
-    clublogo = 'dolphins_logo1.png';
+    clublogo = 'Club_LOGO/dolphins_logo.png';
     clubheadTel = '010-5913-4086';
   } else if (club_name === 'SMAK'){
     clubname = 'SMAK';
@@ -120,6 +127,7 @@ if (club_name) {
     clubname = '플라이파워';
   } else if (club_name === 'Poomsaedan'){
     clubname = '태극';
+    clublogo = 'Club_LOGO/poomsaedan_logo.png';
   } else if (club_name === 'Biallants'){
     clubname = '바이얼런츠';
   } else {
